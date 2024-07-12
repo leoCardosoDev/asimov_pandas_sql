@@ -14,3 +14,13 @@ print()
 completo = pd.Series(data=labels, index=minha_lista)
 # completo = pd.Series(labels, minha_lista)
 print(completo)
+print()
+print('_-_-_'*30)
+print()
+
+print(pd.Series(dic))
+
+print()
+print('_-_-_'*30)
+print()
+
