@@ -42,3 +42,19 @@ print(faturamento_mes)
 print()
 print('-_-'*55)
 print()
+
+# 5. Qual foi a média de avaliação por cada filial em Janeiro de 2019
+rating = df_data[(df_data['Year'] == 2019) & (df_data['Month'] == 1)]['Rating'].mean()
+print(rating)
+
+print()
+print('-_-'*55)
+print()
+
+# 5. Como se distribui o gasto por tipo de consumidor em cada filial?
+consumer = df_data.groupby(['Customer type', 'City'])['Total'].sum()
+print(consumer)
+
+print()
+print('-_-'*55)
+print()
