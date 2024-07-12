@@ -23,3 +23,22 @@ print(percentual_receita)
 print()
 print('-_-'*55)
 print()
+
+# 3. Como está distribuido o tipo de produto consumido por genero?
+by_genre = df_data.groupby(['Product line', 'Gender'])[['Total']].sum().pivot_table(index='Product line', columns='Gender')
+print(by_genre)
+
+print()
+print('-_-'*55)
+print()
+
+# 4. Qual foi o faturamento por mês?
+df_data['Date'] = pd.to_datetime(df_data['Date'])
+df_data['Month'] = df_data['Date'].apply(lambda x: x.month)
+df_data['Year'] = df_data['Date'].apply(lambda x: x.year)
+faturamento_mes = df_data.groupby(['Month'])['Total'].sum()
+print(faturamento_mes)
+
+print()
+print('-_-'*55)
+print()
