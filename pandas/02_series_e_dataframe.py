@@ -5,5 +5,12 @@ labels = ['a', 'b', 'c']
 minha_lista = [10, 20, 30]
 arr = np.array([10, 20, 30])
 dic = {'a': 10, 'b': 20, 'c': 30}
-mostrar = pd.Series(labels)
-print(mostrar)
+simples = pd.Series(labels)
+print(simples)
+print()
+print('_-_-_'*30)
+print()
+
+completo = pd.Series(data=labels, index=minha_lista)
+# completo = pd.Series(labels, minha_lista)
+print(completo)
