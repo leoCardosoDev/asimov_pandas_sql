@@ -24,3 +24,12 @@ print()
 print('_-_-_'*30)
 print()
 
+series1 = pd.Series([1, 2, 3, 4], index=['EUA', 'Alemanha', 'Rússia', 'Japão'])
+print(series1)
+
+series2 = pd.Series([1, 2, 3, 4], index=['EUA', 'Alemanha', 'Itália', 'Japão'])
+print(series2)
+
+print(series1['EUA'])
+print(series1[['EUA', 'Rússia']])
+print(series1 + series2)
