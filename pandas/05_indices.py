@@ -12,4 +12,7 @@ print(df.reset_index())
 print(df)
 print(df.reset_index(inplace=True))
 print(df)
+print("___---___"*10)
+print(df.set_index('index', inplace=True))
+print(df)
 
