@@ -6,5 +6,10 @@ from numpy.random import randn
 df = pd.DataFrame(randn(5,4), index=['A', 'B', 'C', 'D', 'E'], columns='W X Y Z'.split())
 df['new'] = df['W'] + df['Y']
 
+print(df.index)
+print(df.columns)
+print(df.reset_index())
+print(df)
+print(df.reset_index(inplace=True))
 print(df)
 
