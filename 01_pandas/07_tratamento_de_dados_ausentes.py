@@ -38,3 +38,5 @@ print(df.ffill())
 print()
 print("**"*25)
 print()
+
+print(df.bfill())
