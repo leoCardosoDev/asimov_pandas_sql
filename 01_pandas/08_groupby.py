@@ -15,3 +15,8 @@ print()
 
 print('# Selecionando apenas as colunas numéricas para as operações de agregação')
 df_numerico = df.select_dtypes(include=['number'])
+
+
+print('# Adicionando a coluna "Classe" de volta para o agrupamento')
+df_numerico['Classe'] = df['Classe']
+
