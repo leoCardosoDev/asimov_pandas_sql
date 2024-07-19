@@ -13,8 +13,5 @@ print()
 print("**"*25)
 print()
 
-
-
-
-
-
+print('# Selecionando apenas as colunas numéricas para as operações de agregação')
+df_numerico = df.select_dtypes(include=['number'])
