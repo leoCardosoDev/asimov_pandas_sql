@@ -20,3 +20,16 @@ print(df.dropna(axis=1, thresh=2))
 print()
 print("**"*25)
 print()
+
+print(df.fillna(0))
+print(df.fillna('0'))
+print(df['A'].sum())
+print(df['A'].mean())
+print(df['A'].fillna(value=df['A'].sum()))
+print(df['A'].fillna(value=df['A'].mean()))
+
+print()
+print("**"*25)
+print()
+
+
