@@ -31,3 +31,12 @@ print(df_numerico.groupby("Classe").max())
 print()
 print("**"*25)
 print()
+
+
+df2 = df.copy()
+print(df2)
+print()
+df2['Venda'] = [150, 432, 190, 230, 410, 155]
+print(df2)
+print()
+
