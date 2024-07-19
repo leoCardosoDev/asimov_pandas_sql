@@ -20,3 +20,14 @@ df_numerico = df.select_dtypes(include=['number'])
 print('# Adicionando a coluna "Classe" de volta para o agrupamento')
 df_numerico['Classe'] = df['Classe']
 
+print(df_numerico.groupby("Classe").sum())
+print()
+print(df_numerico.groupby("Classe").mean())
+print()
+print(df_numerico.groupby("Classe").min())
+print()
+print(df_numerico.groupby("Classe").max())
+
+print()
+print("**"*25)
+print()
