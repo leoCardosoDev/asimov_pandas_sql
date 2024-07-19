@@ -40,3 +40,10 @@ df2['Venda'] = [150, 432, 190, 230, 410, 155]
 print(df2)
 print()
 
+df3 = pd.concat([df, df2])
+print('Concatenando df com df2')
+print(df3)
+
+print()
+print("**"*25)
+print()
