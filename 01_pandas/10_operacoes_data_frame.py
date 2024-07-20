@@ -30,3 +30,16 @@ print(f'\n{df[df['col2'] == 444]}\n')
 print(f'{df[df['col2'] == 444]['col1'].sum()}\n')
 
 print(f'\n{df.sort_values(by='col2')}\n')
+
+data = {'A':['foo', 'foo', 'foo', 'bar', 'bar', 'bar'],
+        'B':['one', 'one', 'two', 'two', 'one', 'one'],
+        'C': ['x', 'y', 'x', 'y', 'x', 'y'],
+        'D':[1,3,2,5,4,1]}
+df2 = pd.DataFrame(data)
+print(f'\n{df2}\n')
+dict_map = {'one': '1', 'two': 2}
+print(df2['B'].map(dict_map))
+df2['E'] = df2['B'].map(dict_map)
+print(f'{df2}\n')
+
+print(f'\n{df2.pivot_table(index="A", columns="B", values="D")}\n')
