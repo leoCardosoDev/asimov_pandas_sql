@@ -60,3 +60,19 @@ print(f'{pd.merge(esquerda2, direita2, how='inner', on=["key1", "key2"])}\n')
 print(f'{pd.merge(esquerda2, direita2, how='left', on=["key1", "key2"])}\n')
 print(f'{pd.merge(esquerda2, direita2, how='outer', on=["key1", "key2"])}\n')
 print(f'{pd.merge(esquerda2, direita2, how='right', on=["key1", "key2"])}\n')
+
+esquerda3 = pd.DataFrame({'A': ['A0', 'A1','A2'],
+                    'B': ['B0', 'B1', 'B2']},
+                    index=['K0', 'K1', 'K2'])
+
+direita3 = pd.DataFrame({'C': ['C0', 'C2','C3'],
+                    'D': ['D0', 'D2', 'D3']},
+                    index=['K0', 'K2', 'K3'])
+
+print(f'{esquerda3}\n')
+print(f'{direita3}\n')
+print(f'{esquerda3.join(direita3)}\n')
+print(f'{esquerda3.join(direita3, how='left')}\n')
+print(f'{esquerda3.join(direita3, how='outer')}\n')
+print(f'{esquerda3.join(direita3, how='right')}\n')
+
