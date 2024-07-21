@@ -55,3 +55,11 @@ print(f'\n{df3}\n')
 
 df4 = pd.read_sql_query("SELECT A, B, C FROM data WHERE A > 200 and B > 100", con=connection)
 print(f'\n{df4}\n')
+
+# UPDATE e DELETE
+commands.execute("UPDATE data SET A=219, Z=2.9 WHERE index_name='b'")
+connection.commit()
+
+# DELETE
+commands.execute("DELETE FROM data WHERE index_name='b'")
+connection.commit()
