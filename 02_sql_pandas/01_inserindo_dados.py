@@ -1,4 +1,6 @@
 import sqlite3
 import pandas as pd
+from pathlib import Path
 
-connection = sqlite3.connect('02_sql_pandas/web.db')
+db = Path(__file__).parent / 'web.db'
+connection = sqlite3.connect(db)
