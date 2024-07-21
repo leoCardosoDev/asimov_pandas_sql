@@ -10,7 +10,18 @@ df_data.index.name = 'index_name'
 df_data.to_sql('data', connection, index_label='index_name')
 
 commands = connection.cursor()
+# Create
 commands.execute('CREATE TABLE products ([product_id] INTEGER PRIMARY KEY, [product_name] TEXT, [price] INTERGER)')
-# commands.execute('DROP TABLE products')
-# commands.execute('DROP TABLE data')
+# Insert
+commands.execute('''
+    INSERT INTO products (product_id, product_name, price)
+    VALUES
+    (1, "Computer", 800),
+    (2, "Printer", 200),
+    (3, "Tablet", 300)
+''')
 connection.commit()
+
+# Inserindo com pandas
+df_data2 = df_data.iloc[::-2]
+df_data2.to_sql('data', connection, if_exists='append')
