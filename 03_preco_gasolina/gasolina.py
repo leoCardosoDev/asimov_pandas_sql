@@ -62,3 +62,7 @@ print(df3[(df3['ANO-MES'] == '2014/05') & (df3['ESTADO'] == 'SAO PAULO')]['PREÇ
 print(df3[df3['PREÇO MÉDIO REVENDA'] > 5].columns)
 print(df3[df3['PREÇO MÉDIO REVENDA'] > 5][['ESTADO', 'ANO-MES', 'PREÇO MÉDIO REVENDA']])
 
+# 11. Qual o preço médio dos estados da região sul em 2012?
+df_aux = df3[pd.to_datetime(df3['DATA FINAL']).apply(lambda x: x.year) == 2012]
+print(df_aux[df_aux['REGIÃO'] == "SUL"]['PREÇO MÉDIO REVENDA'].mean())
+
