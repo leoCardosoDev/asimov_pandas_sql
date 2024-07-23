@@ -44,3 +44,8 @@ print(df['ANO-MES'])
 # 6. Utilizando values_counts(), liste os tipos de produtos contidos na base de dados
 print(df.columns)
 print(df['PRODUTO'].value_counts())
+
+# 7. Filtre o Dataframe para obter apenas dados da 'GASOLINA COMUM'. Grave em uma nova variável
+df_filtro = df['PRODUTO'] == 'GASOLINA COMUM'
+df3 = df[df_filtro]
+print(df3)
