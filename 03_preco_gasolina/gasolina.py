@@ -54,3 +54,6 @@ print(df3)
 df_2008_08 = df3[df3['ANO-MES'] == '2008/08']
 print(df_2008_08['PREÇO MÉDIO REVENDA'].mean())
 
+# 9. Qual o preço médio de revenda da gasolina em Maio de 2014 em São Paulo
+print(df3[(df3['ANO-MES'] == '2014/05') & (df3['ESTADO'] == 'SAO PAULO')]['PREÇO MÉDIO REVENDA'].mean())
+
