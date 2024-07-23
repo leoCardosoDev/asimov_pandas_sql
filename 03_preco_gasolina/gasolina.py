@@ -40,3 +40,7 @@ print(pd.to_datetime(df['DATA INICIAL'])[2].weekday)
 print(pd.to_datetime(df['DATA FINAL']))
 df['ANO-MES'] = pd.to_datetime(df['DATA FINAL']).apply(lambda x: '{}'.format(x.year)) + pd.to_datetime(df['DATA FINAL']).apply(lambda x: '-{:02d}'.format(x.month))
 print(df['ANO-MES'])
+
+# 6. Utilizando values_counts(), liste os tipos de produtos contidos na base de dados
+print(df.columns)
+print(df['PRODUTO'].value_counts())
