@@ -25,6 +25,12 @@ print(type(df['DATA INICIAL'][2]))
 # 4. Você deve ter percebido que as colunas 'DATA INICIAL' e 'DATA FINAL' 
 # estão formatadas como string. Utilizando o método pd.to_datetime(), converta 
 # ambas as colunas para Timestamp/Datetime
-pd.to_datetime(df['DATA INICIAL'])
-pd.to_datetime(df['DATA FINAL'])
-print(type(df['DATA INICIAL'][2]))
+print(pd.to_datetime(df['DATA INICIAL']))
+print(pd.to_datetime(df['DATA FINAL']))
+print(type(pd.to_datetime(df['DATA INICIAL'])[2]))
+print(pd.to_datetime(df['DATA INICIAL'])[2])
+print(pd.to_datetime(df['DATA INICIAL'])[2].day)
+print(pd.to_datetime(df['DATA INICIAL'])[2].month)
+print(pd.to_datetime(df['DATA INICIAL'])[2].year)
+print(pd.to_datetime(df['DATA INICIAL'])[2].week)
+print(pd.to_datetime(df['DATA INICIAL'])[2].weekday)
