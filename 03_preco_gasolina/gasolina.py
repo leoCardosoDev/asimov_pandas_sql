@@ -17,3 +17,7 @@ print(df.head())
 print(df.info())
 print(df.tail())
 print(df['MARGEM MÉDIA REVENDA'][0])
+
+# 3. Selecione a terceira entrada da coluna DATA INICIAL e verifique o seu tipo
+print(df['DATA INICIAL'][2])
+print(type(df['DATA INICIAL'][2]))
