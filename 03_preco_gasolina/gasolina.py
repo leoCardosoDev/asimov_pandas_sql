@@ -12,3 +12,8 @@ print(df1.shape)
 print(df2.shape)
 print(df.shape)
 
+# 2. Investigue as colunas e entenda o conjunto de dados usando o head() e info()
+print(df.head())
+print(df.info())
+print(df.tail())
+print(df['MARGEM MÉDIA REVENDA'][0])
