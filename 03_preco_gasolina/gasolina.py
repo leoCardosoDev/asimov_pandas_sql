@@ -57,3 +57,8 @@ print(df_2008_08['PREÇO MÉDIO REVENDA'].mean())
 # 9. Qual o preço médio de revenda da gasolina em Maio de 2014 em São Paulo
 print(df3[(df3['ANO-MES'] == '2014/05') & (df3['ESTADO'] == 'SAO PAULO')]['PREÇO MÉDIO REVENDA'].mean())
 
+# 10. Você conseguiria descobrir em qual(quais) estados(s) a gasolina 
+# ultrapassou a barreira dos R$ 5,00? E quando isso ocorreu?
+print(df3[df3['PREÇO MÉDIO REVENDA'] > 5].columns)
+print(df3[df3['PREÇO MÉDIO REVENDA'] > 5][['ESTADO', 'ANO-MES', 'PREÇO MÉDIO REVENDA']])
+
