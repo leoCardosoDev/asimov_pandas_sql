@@ -8,4 +8,7 @@ pasta_atual = Path(__file__).parent
 df1 = pd.read_csv(pasta_atual / 'gasolina_2000+.csv', index_col=0)
 df2 = pd.read_csv(pasta_atual / 'gasolina_2010+.csv', index_col=0)
 df = pd.concat([df1, df2])
+print(df1.shape)
+print(df2.shape)
+print(df.shape)
 
