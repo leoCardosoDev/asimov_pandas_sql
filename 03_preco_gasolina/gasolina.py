@@ -34,3 +34,9 @@ print(pd.to_datetime(df['DATA INICIAL'])[2].month)
 print(pd.to_datetime(df['DATA INICIAL'])[2].year)
 print(pd.to_datetime(df['DATA INICIAL'])[2].week)
 print(pd.to_datetime(df['DATA INICIAL'])[2].weekday)
+
+# 5. Crie uma nova coluna para representar o ano e o mês (aaaa-mm), utilizando 
+# a coluna 'DATA FINAL' como referência
+print(pd.to_datetime(df['DATA FINAL']))
+df['ANO-MES'] = pd.to_datetime(df['DATA FINAL']).apply(lambda x: '{}'.format(x.year)) + pd.to_datetime(df['DATA FINAL']).apply(lambda x: '-{:02d}'.format(x.month))
+print(df['ANO-MES'])
