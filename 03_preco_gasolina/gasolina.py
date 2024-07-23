@@ -21,3 +21,10 @@ print(df['MARGEM MÉDIA REVENDA'][0])
 # 3. Selecione a terceira entrada da coluna DATA INICIAL e verifique o seu tipo
 print(df['DATA INICIAL'][2])
 print(type(df['DATA INICIAL'][2]))
+
+# 4. Você deve ter percebido que as colunas 'DATA INICIAL' e 'DATA FINAL' 
+# estão formatadas como string. Utilizando o método pd.to_datetime(), converta 
+# ambas as colunas para Timestamp/Datetime
+pd.to_datetime(df['DATA INICIAL'])
+pd.to_datetime(df['DATA FINAL'])
+print(type(df['DATA INICIAL'][2]))
