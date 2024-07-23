@@ -66,3 +66,10 @@ print(df3[df3['PREÇO MÉDIO REVENDA'] > 5][['ESTADO', 'ANO-MES', 'PREÇO MÉDIO
 df_aux = df3[pd.to_datetime(df3['DATA FINAL']).apply(lambda x: x.year) == 2012]
 print(df_aux[df_aux['REGIÃO'] == "SUL"]['PREÇO MÉDIO REVENDA'].mean())
 
+# 12. Você conseguiria obter uma tabela contendo a variação 
+# percentual ano a ano para o estado do Rio de Janeiro?
+df3['MES'] = pd.to_datetime(df3['DATA FINAL']).apply(lambda x: x.month)
+df_rj = df3[df3['ESTADO'] == 'RIO DE JANEIRO']
+df_rj_month = df_rj.groupby('ANO-MES')[['PREÇO MÉDIO REVENDA', 'MES']].last()
+print((df_rj_month[df_rj_month['MES'] == 12] / df_rj_month[df_rj_month['MES'] == 12].shift(1) - 1) * 100)
+print(((df_rj_month[df_rj_month['MES'] == 12] / df_rj_month[df_rj_month['MES'] == 12].shift(1) - 1) * 100).rolling(3).sum())
