@@ -38,7 +38,7 @@ print(pd.to_datetime(df['DATA INICIAL'])[2].weekday)
 # 5. Crie uma nova coluna para representar o ano e o mês (aaaa-mm), utilizando 
 # a coluna 'DATA FINAL' como referência
 print(pd.to_datetime(df['DATA FINAL']))
-df['ANO-MES'] = pd.to_datetime(df['DATA FINAL']).apply(lambda x: '{}'.format(x.year)) + pd.to_datetime(df['DATA FINAL']).apply(lambda x: '-{:02d}'.format(x.month))
+df['ANO-MES'] = pd.to_datetime(df['DATA FINAL']).apply(lambda x: '{}'.format(x.year)) + pd.to_datetime(df['DATA FINAL']).apply(lambda x: '/{:02d}'.format(x.month))
 print(df['ANO-MES'])
 
 # 6. Utilizando values_counts(), liste os tipos de produtos contidos na base de dados
@@ -49,3 +49,8 @@ print(df['PRODUTO'].value_counts())
 df_filtro = df['PRODUTO'] == 'GASOLINA COMUM'
 df3 = df[df_filtro]
 print(df3)
+
+# 8. Qual o preço médio de revenda da gasolina em Agosto de 2008
+df_2008_08 = df3[df3['ANO-MES'] == '2008/08']
+print(df_2008_08['PREÇO MÉDIO REVENDA'].mean())
+
