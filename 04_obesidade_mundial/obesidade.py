@@ -34,3 +34,15 @@ print('\n\n')
 print('2. Qual o percentual médio de obesidade por sexo no mundo no ano de 2015?')
 media = df_obesity[df_obesity.index == 2015].groupby('Sex').mean(numeric_only=True)
 print(media)
+
+print('****'*30)
+print('\n\n')
+# Questão 3
+print('Quais são os países com a maior e a meno taxa de aumento nos índices de obesidade no período observado?')
+df_obesity_start = df_obesity[df_obesity.index == 1975]
+df_obesity_end = df_obesity[df_obesity.index == 2016]
+df_obesity_start.set_index('Country', inplace=True)
+df_obesity_end.set_index('Country', inplace=True)
+df_obesity_evolution = df_obesity_end[df_obesity_end['Sex'] == 'Both sexes']['Obesity'] - df_obesity_start[df_obesity_end['Sex'] == 'Both sexes']['Obesity']
+print(df_obesity_evolution.sort_values().dropna().tail(5))
+print(df_obesity_end[df_obesity_end.index == 'Tuvalu'])
