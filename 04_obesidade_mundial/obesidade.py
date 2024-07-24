@@ -62,3 +62,10 @@ print('5. Qual a diferença média percentual de obesidade entre sexos ao longo 
 df_brasil = df_obesity[df_obesity['Country'] == 'Brazil']
 print(df_brasil[df_brasil['Sex'] == 'Female']['Obesity'] - df_brasil[df_brasil['Sex'] == 'Male']['Obesity'])
 # (df_brasil[df_brasil['Sex'] == 'Female']['Obesity'] - df_brasil[df_brasil['Sex'] == 'Male']['Obesity']).plot()
+
+# Questão 6
+print('****'*30)
+print('\n\n')
+print('Você conseguiria plotar um gráfico mostrando a evolução de obesidade para ambos os sexos no mundo?')
+df_both = df_obesity[df_obesity['Sex'] == 'Both sexes']
+print(df_both.groupby('Year')['Obesity'].mean().plot())
