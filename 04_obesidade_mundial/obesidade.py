@@ -46,3 +46,10 @@ df_obesity_end.set_index('Country', inplace=True)
 df_obesity_evolution = df_obesity_end[df_obesity_end['Sex'] == 'Both sexes']['Obesity'] - df_obesity_start[df_obesity_end['Sex'] == 'Both sexes']['Obesity']
 print(df_obesity_evolution.sort_values().dropna().tail(5))
 print(df_obesity_end[df_obesity_end.index == 'Tuvalu'])
+
+print('****'*30)
+print('\n\n')
+# Questão 4
+print('Quais os países com maiores e menores níveis percetuais de obesidade em 2015?')
+df_2015 = df_obesity[df_obesity.index == 2015]
+print(df_2015[df_2015['Obesity'] == df_2015['Obesity'].max()])
