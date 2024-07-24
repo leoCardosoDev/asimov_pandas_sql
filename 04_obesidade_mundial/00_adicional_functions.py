@@ -10,3 +10,12 @@ print(df_obesity)
 print(type(df_obesity['Sex']))
 print(type(df_obesity[['Sex']]))
 print(type(df_obesity['Sex'].to_frame()))
+print('\n')
+print('==='*25)
+print('\n')
+
+# transpose
+print(df_obesity[['Sex']].transpose())
+print('\n')
+print('==='*25)
+print('\n')
