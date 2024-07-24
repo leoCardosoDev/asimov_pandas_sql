@@ -26,3 +26,6 @@ print(df_obesity[['Year']] - df_obesity[['Year']].shift(1))
 print('\n')
 print('==='*25)
 print('\n')
+
+# isin()
+print(df_obesity['Year'].isin([1900, 1901, 1975]))
