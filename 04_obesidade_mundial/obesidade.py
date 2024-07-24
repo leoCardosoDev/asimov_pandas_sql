@@ -1,6 +1,7 @@
 from pathlib import Path
 import pandas as pd
 import numpy as np
+import matplotlib
 
 current_folder = Path(__file__).parent
 df_obesity = pd.read_csv(current_folder / 'obesity_cleaned.csv')
@@ -38,7 +39,7 @@ print(media)
 print('****'*30)
 print('\n\n')
 # Questão 3
-print('Quais são os países com a maior e a meno taxa de aumento nos índices de obesidade no período observado?')
+print('3. Quais são os países com a maior e a meno taxa de aumento nos índices de obesidade no período observado?')
 df_obesity_start = df_obesity[df_obesity.index == 1975]
 df_obesity_end = df_obesity[df_obesity.index == 2016]
 df_obesity_start.set_index('Country', inplace=True)
@@ -50,6 +51,14 @@ print(df_obesity_end[df_obesity_end.index == 'Tuvalu'])
 print('****'*30)
 print('\n\n')
 # Questão 4
-print('Quais os países com maiores e menores níveis percetuais de obesidade em 2015?')
+print('4. Quais os países com maiores e menores níveis percetuais de obesidade em 2015?')
 df_2015 = df_obesity[df_obesity.index == 2015]
 print(df_2015[df_2015['Obesity'] == df_2015['Obesity'].max()])
+
+# Questão 5
+print('****'*30)
+print('\n\n')
+print('5. Qual a diferença média percentual de obesidade entre sexos ao longo dos anos para o Brasil?')
+df_brasil = df_obesity[df_obesity['Country'] == 'Brazil']
+print(df_brasil[df_brasil['Sex'] == 'Female']['Obesity'] - df_brasil[df_brasil['Sex'] == 'Male']['Obesity'])
+# (df_brasil[df_brasil['Sex'] == 'Female']['Obesity'] - df_brasil[df_brasil['Sex'] == 'Male']['Obesity']).plot()
