@@ -5,9 +5,8 @@ import numpy as np
 current_folder = Path(__file__).parent
 df_obesity = pd.read_csv(current_folder / 'obesity_cleaned.csv')
 
-# 1. Limpe os dados do Dataframe, criando uma coluna de nome 'Obesity' 
-# que conterá os valores de obesidade. Transforme em float as colunas 
-# que porventura foram importadas como string
+# Questão 1
+print('''1. Limpe os dados do Dataframe, criando uma coluna de nome 'Obesity' que conterá os valores de obesidade. Transforme em float as colunas que porventura foram importadas como string''')
 print(df_obesity.columns)
 del df_obesity['Unnamed: 0']
 print(df_obesity['Country']) # object (string)
@@ -28,3 +27,10 @@ df_obesity['Year'] = df_obesity['Year'].apply(lambda x: int(x)) # Garantir que o
 print(df_obesity['Obesity']) # dtype: float64
 df_obesity.set_index('Year', inplace=True)
 print(df_obesity)
+
+print('****'*30)
+print('\n\n')
+# Questão 2
+print('2. Qual o percentual médio de obesidade por sexo no mundo no ano de 2015?')
+media = df_obesity[df_obesity.index == 2015].groupby('Sex').mean(numeric_only=True)
+print(media)
