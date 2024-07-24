@@ -47,3 +47,16 @@ print(df_obesity.columns)
 print('\n')
 print('==='*25)
 print('\n')
+
+# iterrows
+for idx, row in df_obesity.iterrows():
+    print(idx, row['Country'])
+    break # Só para mostrar o exemplo
+print('\n')
+print('==='*25)
+print('\n')
+
+print('\n')
+print('==='*25)
+print('\n')
+
