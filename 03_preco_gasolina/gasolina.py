@@ -73,3 +73,23 @@ df_rj = df3[df3['ESTADO'] == 'RIO DE JANEIRO']
 df_rj_month = df_rj.groupby('ANO-MES')[['PREÇO MÉDIO REVENDA', 'MES']].last()
 print((df_rj_month[df_rj_month['MES'] == 12] / df_rj_month[df_rj_month['MES'] == 12].shift(1) - 1) * 100)
 print(((df_rj_month[df_rj_month['MES'] == 12] / df_rj_month[df_rj_month['MES'] == 12].shift(1) - 1) * 100).rolling(3).sum())
+
+# 13. DESAFIO: Crie uma tabela contendo uma série temporal com a diferença 
+# absoluta e percentual entre os valores mais baratos e caros. Apresente 
+# também ao lado os estados na qual os maiores e menroes preços foram registardos
+df_max = df3.groupby('ANO-MES').max()['PREÇO MÉDIO REVENDA']
+df_min = df3.groupby('ANO-MES').min()['PREÇO MÉDIO REVENDA']
+df_diff = pd.DataFrame()
+df_diff['abs_diff'] = df_max -df_min
+df_diff['percent_diff'] = (df_max - df_min) / df_min * 100
+# pandas groupby index max
+idx_max = df3.groupby('ANO-MES')['PREÇO MÉDIO REVENDA'].idxmax()
+idx_min = df3.groupby('ANO-MES')['PREÇO MÉDIO REVENDA'].idxmin()
+df_diff['max'] = idx_max
+df_diff['min'] = idx_min
+# Acessando o Estado
+df_diff['ESTADO_MAX'] = df3.loc[idx_max, :]['ESTADO'].values
+df_diff['ESTADO_MIN'] = df3.loc[idx_min, :]['ESTADO'].values
+print(df_diff)
+print(df_diff['ESTADO_MAX'].value_counts())
+print(df_diff['ESTADO_MIN'].value_counts())
