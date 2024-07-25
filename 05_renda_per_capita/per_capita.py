@@ -23,3 +23,10 @@ df_first = df_gdp.groupby('Country')['Year'].min()
 df_first = df_gdp.groupby('Country')['Year'].min().value_counts()
 df_first = df_gdp.groupby('Country')['Year'].min().max()
 df_first = df_gdp.groupby('Country')['Year'].min()[df_gdp.groupby('Country')['Year'].min() == 1991]
+
+# 3. Informe as regiões com maiores crescimentos de PIB per capita no século passado
+df_gdp_start = df_gdp[df_gdp['Year'] == 1901]
+df_gdp[df_gdp['Year'] < 2000].max() # 1996
+df_gdp_end = df_gdp[df_gdp['Year'] == 1996]
+df_renda = ((df_gdp_end.groupby('Region')['gdp_pp'].mean() / df_gdp_start.groupby('Region')['gdp_pp'].mean() -1) * 100).sort_values()
+print(df_renda)
