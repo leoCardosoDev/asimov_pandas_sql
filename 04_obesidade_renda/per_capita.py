@@ -1,5 +1,7 @@
 from pathlib import Path
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 folder = Path(__file__).parent
 df_gdp = pd.read_csv(folder / 'gdp.csv')
@@ -29,4 +31,37 @@ df_gdp_start = df_gdp[df_gdp['Year'] == 1901]
 df_gdp[df_gdp['Year'] < 2000].max() # 1996
 df_gdp_end = df_gdp[df_gdp['Year'] == 1996]
 df_renda = ((df_gdp_end.groupby('Region')['gdp_pp'].mean() / df_gdp_start.groupby('Region')['gdp_pp'].mean() -1) * 100).sort_values()
-print(df_renda)
+
+
+# 4. Preencha os anos ausentes em cada pais com uma estimativa, baseada na diferença entre o proximo registro e o anterior
+arr_year = np.arange(df_gdp['Year'].min(), df_gdp['Year'].max())
+df_all_years = pd.DataFrame(arr_year, columns=['Year'])
+df_all_years.index = df_all_years['Year']
+df_years_off = ~df_all_years['Year'].isin(df_gdp['Year'])
+df_years_off = df_all_years.loc[df_years_off].index
+df_gdp = df_gdp.sort_values(['Country', 'Year'])
+df_gdp['delta_gdp'] = df_gdp['gdp_pp'] - df_gdp['gdp_pp'].shift(1)
+df_gdp['delta_year'] = df_gdp['Year'] - df_gdp['Year'].shift(1)
+df_gdp['gdp_year'] = (df_gdp['delta_gdp'] / df_gdp['delta_year']).shift(-1)
+df_gdp['next_year'] = df_gdp['Year'].shift(-1)
+del df_gdp['delta_gdp'], df_gdp['delta_year']
+df_new_data = pd.DataFrame()
+for idx, row in df_gdp.iterrows():
+    if row['Year'] == 2011:
+        continue
+    years_to_add = df_years_off[(df_years_off < row['next_year']) & (df_years_off >row['Year'])]
+    for new_year in years_to_add:
+        add_row = row.copy()
+        add_row['gdp_pp'] = (new_year - add_row['Year']) * add_row['gdp_pp'] + add_row['gdp_pp']
+        add_row['Year'] = new_year
+        add_row['kind'] = 'estimated'
+        df_new_data = pd.concat([df_new_data, add_row.to_frame().transpose()])
+df_gdp = pd.concat([df_gdp, df_new_data])
+df_gdp.sort_values(['Country', 'Year'], inplace=True)
+df_gdp.index = df_gdp['Year']
+df_gdp['kind'].fillna('real', inplace=True)
+
+fig, ax = plt.subplots(figsize=(20,5))
+country = 'Brazil'
+df_gdp = df_gdp[(df_gdp['kind'] == 'real') & (df_gdp['Country'] == country)].plot(kind='scatter', y='gdp_pp', x="Year", ax=ax)
+plt.show()
