@@ -17,3 +17,9 @@ df_gdp[' GDP_pp '].iloc[0].split()[0] # 613.99
 float(df_gdp[' GDP_pp '].iloc[0].split()[0]) # convert para float
 df_gdp['gdp_pp'] = df_gdp[' GDP_pp '].apply(lambda x: float(x.split()[0].replace(',', '')))
 del df_gdp[' GDP_pp ']
+
+# 2. Você conseguiria informar o primeiro valor registrado de cada país?
+df_first = df_gdp.groupby('Country')['Year'].min()
+df_first = df_gdp.groupby('Country')['Year'].min().value_counts()
+df_first = df_gdp.groupby('Country')['Year'].min().max()
+df_first = df_gdp.groupby('Country')['Year'].min()[df_gdp.groupby('Country')['Year'].min() == 1991]
