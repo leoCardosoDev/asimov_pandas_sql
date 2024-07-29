@@ -81,6 +81,3 @@ sns.clustermap(correlation_matrix, annot=True, cmap='coolwarm')
 # Exibindo o gráfico
 plt.title('Clustermap of Correlation Matrix')
 plt.show()
-
-
-
