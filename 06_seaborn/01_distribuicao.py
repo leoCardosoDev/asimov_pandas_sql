@@ -13,3 +13,10 @@ plt.title('Histograma da Conta Total')
 plt.xlabel('Conta Total')
 plt.ylabel('Frequência')
 plt.show()
+
+# Criando um KDE plot para a coluna 'total_bill'
+sns.kdeplot(tips['total_bill'], fill=True)
+plt.title('KDE Plot da Conta Total')
+plt.xlabel('Conta Total')
+plt.ylabel('Densidade')
+plt.show()
