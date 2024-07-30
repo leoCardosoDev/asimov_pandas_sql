@@ -13,3 +13,10 @@ plt.title('Boxplot da Conta Total por Dia')
 plt.xlabel('Dia')
 plt.ylabel('Conta Total')
 plt.show()
+
+# Criando um violinplot para a coluna 'total_bill' categorizada por 'day'
+sns.violinplot(x='day', y='total_bill', data=tips)
+plt.title('Violinplot da Conta Total por Dia')
+plt.xlabel('Dia')
+plt.ylabel('Conta Total')
+plt.show()
