@@ -1,0 +1,10 @@
+import plotly.graph_objects as go
+import numpy as np
+
+x = np.random.randn(500)
+x1 = np.random.randn(500) + 1
+fig = go.Figure()
+fig.add_trace(go.Histogram(x=x))
+fig.add_trace(go.Histogram(x=x1))
+
+fig.show()
