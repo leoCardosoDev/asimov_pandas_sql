@@ -5,4 +5,5 @@ fig = go.Figure(data=go.Heatmap(
     x=['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'],
     y=['Manhã', 'Tarde', 'Noite'],
 ))
+
 fig.show()
