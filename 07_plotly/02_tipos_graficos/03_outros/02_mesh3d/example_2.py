@@ -10,6 +10,7 @@ fig = go.Figure(data=go.Mesh3d(
     x=x,
     y=y,
     z=z,
-    opacity=0.5
+    opacity=0.5,
+    color='#FF0912'
 ))
 fig.show()
