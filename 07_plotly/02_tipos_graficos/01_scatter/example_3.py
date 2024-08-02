@@ -7,5 +7,4 @@ fig = go.Figure(data=go.Scatter(
     marker=dict(size=[40, 60, 80, 100], color=[0, 1, 2, 3]),
     hovertemplate='R$ %{y} = %{marker.size}'
 ))
-
 fig.show()

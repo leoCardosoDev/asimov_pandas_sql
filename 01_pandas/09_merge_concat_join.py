@@ -75,4 +75,3 @@ print(f'{esquerda3.join(direita3)}\n')
 print(f'{esquerda3.join(direita3, how='left')}\n')
 print(f'{esquerda3.join(direita3, how='outer')}\n')
 print(f'{esquerda3.join(direita3, how='right')}\n')
-

@@ -26,4 +26,3 @@ print()
 print(df.reset_index().set_index('novo_indice'))
 df.set_index('novo_indice', inplace=True)
 print(df)
-

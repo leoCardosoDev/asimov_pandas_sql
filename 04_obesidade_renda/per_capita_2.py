@@ -30,7 +30,6 @@ print(df_gdp_full.isnull().sum())
 
 # Validação dos dados interpolados
 # Aqui, podemos verificar visualmente ou usar estatísticas para garantir que os dados interpolados fazem sentido
-
 for country in countries:
     df_country = df_gdp_full[df_gdp_full['Country'] == 'Brazil']
     plt.figure(figsize=(10, 5))

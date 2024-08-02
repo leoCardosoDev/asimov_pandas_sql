@@ -24,4 +24,5 @@ print(df[df>0])
 print()
 print(df[df['Y'] > 0])
 print()
+
 print(df[(df['Y'] > 0) & (df['W'] > 0)])

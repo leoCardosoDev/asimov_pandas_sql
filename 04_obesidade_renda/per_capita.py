@@ -65,4 +65,5 @@ fig, ax = plt.subplots(figsize=(20,5))
 country = 'Brazil'
 df_gdp[(df_gdp['kind'] == 'real') & (df_gdp['Country'] == country)].plot(kind='scatter', y='gdp_pp', x="Year", ax=ax)
 df_gdp[(df_gdp['kind'] == 'estimated') & (df_gdp['Country'] == country)].plot(kind='scatter', y='gdp_pp', x="Year", ax=ax, color="red")
+
 plt.show()
