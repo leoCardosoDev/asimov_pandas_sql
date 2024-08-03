@@ -1,9 +1,9 @@
 -- Categories =================================
 
-CREATE TABLE categories (
-  CategoryID int NOT NULL,
-  CategoryName varchar(255) DEFAULT NULL,
-  Description varchar(255) DEFAULT NULL
+CREATE TABLE "Categories" (
+  "CategoryID" int NOT NULL,
+  "CategoryName" varchar(255) DEFAULT NULL,
+  "Description" varchar(255) DEFAULT NULL
 );
 
 INSERT INTO public."Categories"("CategoryID", "CategoryName", "Description") VALUES
@@ -19,14 +19,14 @@ INSERT INTO public."Categories"("CategoryID", "CategoryName", "Description") VAL
 
 -- Customers ==================================
 
-CREATE TABLE customers (
-  CustomerID int NOT NULL,
-  CustomerName varchar(255) DEFAULT NULL,
-  ContactName varchar(255) DEFAULT NULL,
-  Address varchar(255) DEFAULT NULL,
-  City varchar(255) DEFAULT NULL,
-  PostalCode varchar(255) DEFAULT NULL,
-  Country varchar(255) DEFAULT NULL
+CREATE TABLE "Customers" (
+  "CustomerID" int NOT NULL,
+  "CustomerName" varchar(255) DEFAULT NULL,
+  "ContactName" varchar(255) DEFAULT NULL,
+  "Address" varchar(255) DEFAULT NULL,
+  "City" varchar(255) DEFAULT NULL,
+  "PostalCode" varchar(255) DEFAULT NULL,
+  "Country" varchar(255) DEFAULT NULL
 );
 
 INSERT INTO public."Customers" ("CustomerID", "CustomerName", "ContactName", "Address", "City", "PostalCode", "Country") VALUES
@@ -124,13 +124,13 @@ INSERT INTO public."Customers" ("CustomerID", "CustomerName", "ContactName", "Ad
 
 -- Employees ==================================
 
-CREATE TABLE "employees" (
-  EmployeeID int NOT NULL,
-  LastName varchar(255) DEFAULT NULL,
-  FirstName varchar(255) DEFAULT NULL,
-  BirthDate date DEFAULT NULL,
-  Photo varchar(255) DEFAULT NULL,
-  Notes text
+CREATE TABLE "Employees" (
+  "EmployeeID" int NOT NULL,
+  "LastName" varchar(255) DEFAULT NULL,
+  "FirstName" varchar(255) DEFAULT NULL,
+  "BirthDate" date DEFAULT NULL,
+  "Photo" varchar(255) DEFAULT NULL,
+  "Notes" text
 );
 
 INSERT INTO public."Employees" ("EmployeeID", "LastName", "FirstName", "BirthDate", "Photo", "Notes") VALUES
@@ -147,11 +147,11 @@ INSERT INTO public."Employees" ("EmployeeID", "LastName", "FirstName", "BirthDat
 
 -- Order details ==============================
 
-CREATE TABLE order_details (
-  OrderDetailID int NOT NULL,
-  OrderID int DEFAULT NULL,
-  ProductID int DEFAULT NULL,
-  Quantity int DEFAULT NULL
+CREATE TABLE "Order_details" (
+  "OrderDetailID" int NOT NULL,
+  "OrderID" int DEFAULT NULL,
+  "ProductID" int DEFAULT NULL,
+  "Quantity" int DEFAULT NULL
 );
 
 INSERT INTO public."Order_details" ("OrderDetailID", "OrderID", "ProductID", "Quantity") VALUES
@@ -676,12 +676,12 @@ INSERT INTO public."Order_details" ("OrderDetailID", "OrderID", "ProductID", "Qu
 
 -- Orders =====================================
 
-CREATE TABLE orders (
-  OrderID int NOT NULL,
-  CustomerID int DEFAULT NULL,
-  EmployeeID int DEFAULT NULL,
-  OrderDate date DEFAULT NULL,
-  ShipperID int DEFAULT NULL
+CREATE TABLE "Orders" (
+  "OrderID" int NOT NULL,
+  "CustomerID" int DEFAULT NULL,
+  "EmployeeID" int DEFAULT NULL,
+  "OrderDate" date DEFAULT NULL,
+  "ShipperID" int DEFAULT NULL
 );
 
 INSERT INTO public."Orders" ("OrderID", "CustomerID", "EmployeeID", "OrderDate", "ShipperID") VALUES
@@ -885,13 +885,13 @@ INSERT INTO public."Orders" ("OrderID", "CustomerID", "EmployeeID", "OrderDate",
 
 -- Products ===================================
 
-CREATE TABLE products (
-  ProductID int NOT NULL,
-  ProductName varchar(255) DEFAULT NULL,
-  SupplierID int DEFAULT NULL,
-  CategoryID int DEFAULT NULL,
-  Unit varchar(255) DEFAULT NULL,
-  Price decimal NOT NULL
+CREATE TABLE "Products" (
+  "ProductID" int NOT NULL,
+  "ProductName" varchar(255) DEFAULT NULL,
+  "SupplierID" int DEFAULT NULL,
+  "CategoryID" int DEFAULT NULL,
+  "Unit" varchar(255) DEFAULT NULL,
+  "Price" decimal NOT NULL
 );
 
 
@@ -976,31 +976,31 @@ INSERT INTO public."Products" ("ProductID", "ProductName", "SupplierID", "Catego
 
 -- Shippers ===================================
 
-CREATE TABLE shippers (
-  ShipperID int NOT NULL,
-  ShipperName varchar(255) DEFAULT NULL,
-  Phone varchar(255) DEFAULT NULL
+CREATE TABLE "Shippers" (
+  "ShipperID" int NOT NULL,
+  "ShipperName" varchar(255) DEFAULT NULL,
+  "Phone" varchar(255) DEFAULT NULL
 );
 
-INSERT INTO "shippers" ("shipperid", "shippername", "phone") VALUES
+INSERT INTO public."Shippers" ("ShipperID", "ShipperName", "Phone") VALUES
 (1, 'Speedy Express', '(503) 555-9831'),
 (2, 'United Package', '(503) 555-3199'),
 (3, 'Federal Shipping', '(503) 555-9931');
 
 -- Suppliers ==================================
 
-CREATE TABLE suppliers (
-  SupplierID int NOT NULL,
-  SupplierName varchar(255) DEFAULT NULL,
-  ContactName varchar(255) DEFAULT NULL,
-  Address varchar(255) DEFAULT NULL,
-  City varchar(255) DEFAULT NULL,
-  PostalCode varchar(255) DEFAULT NULL,
-  Country varchar(255) DEFAULT NULL,
-  Phone varchar(255) DEFAULT NULL
+CREATE TABLE "Suppliers" (
+  "SupplierID" int NOT NULL,
+  "SupplierName" varchar(255) DEFAULT NULL,
+  "ContactName" varchar(255) DEFAULT NULL,
+  "Address" varchar(255) DEFAULT NULL,
+  "City" varchar(255) DEFAULT NULL,
+  "PostalCode" varchar(255) DEFAULT NULL,
+  "Country" varchar(255) DEFAULT NULL,
+  "Phone" varchar(255) DEFAULT NULL
 );
 
-INSERT INTO "suppliers" ("supplierid", "suppliername", "contactname", "address", "city", "postalcode", "country", "phone") VALUES
+INSERT INTO public."Suppliers" ("SupplierID", "SupplierName", "ContactName", "Address", "City", "PostalCode", "Country", "Phone") VALUES
 (1, 'Exotic Liquid', 'Charlotte Cooper', '49 Gilbert St.', 'Londona', 'EC1 4SD', 'UK', '(171) 555-2222'),
 (2, 'New Orleans Cajun Delights', 'Shelley Burke', 'P.O. Box 78934', 'New Orleans', '70117', 'USA', '(100) 555-4822'),
 (3, 'Grandma Kelly''s Homestead', 'Regina Murphy', '707 Oxford Rd.', 'Ann Arbor', '48104', 'USA', '(313) 555-5735'),
