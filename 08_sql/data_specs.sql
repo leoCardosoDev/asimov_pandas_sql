@@ -982,7 +982,7 @@ CREATE TABLE shippers (
   Phone varchar(255) DEFAULT NULL
 );
 
-INSERT INTO public."Shippers" ("ShipperID", "ShipperName", "Phone") VALUES
+INSERT INTO "shippers" ("shipperid", "shippername", "phone") VALUES
 (1, 'Speedy Express', '(503) 555-9831'),
 (2, 'United Package', '(503) 555-3199'),
 (3, 'Federal Shipping', '(503) 555-9931');
@@ -1000,7 +1000,7 @@ CREATE TABLE suppliers (
   Phone varchar(255) DEFAULT NULL
 );
 
-INSERT INTO public."Suppliers" ("SupplierID", "SupplierName", "ContactName", "Address", "City", "PostalCode", "Country", "Phone") VALUES
+INSERT INTO "suppliers" ("supplierid", "suppliername", "contactname", "address", "city", "postalcode", "country", "phone") VALUES
 (1, 'Exotic Liquid', 'Charlotte Cooper', '49 Gilbert St.', 'Londona', 'EC1 4SD', 'UK', '(171) 555-2222'),
 (2, 'New Orleans Cajun Delights', 'Shelley Burke', 'P.O. Box 78934', 'New Orleans', '70117', 'USA', '(100) 555-4822'),
 (3, 'Grandma Kelly''s Homestead', 'Regina Murphy', '707 Oxford Rd.', 'Ann Arbor', '48104', 'USA', '(313) 555-5735'),
