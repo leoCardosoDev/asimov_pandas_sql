@@ -1,5 +1,5 @@
-from sqlalchemy import create_engine, String, Boolean
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy import create_engine, String, Boolean, select
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, Session
 
 # Detalhes da conexão com o PostgreSQL
 POSTGRES_USER = 'admin'
@@ -27,3 +27,17 @@ DATABASE_URL = f'postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST
 
 engine = create_engine(DATABASE_URL)
 Base.metadata.create_all(bind=engine)
+
+# CRUD
+def create_usuario(nome, senha, email, **kwargs):
+    with Session(bind=engine) as session:
+        usuario = Usuario(nome=nome, email=email, senha=senha, **kwargs)
+        session.add(usuario)
+        session.commit()
+
+def read_usuario():
+    with Session(bind=engine) as session:
+        cmd_sql = select(Usuario)
+        usuarios = session.execute(cmd_sql).fetchall()
+        return usuarios
+
