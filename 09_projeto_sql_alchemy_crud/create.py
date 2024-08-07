@@ -35,9 +35,6 @@ def create_usuario(nome, senha, email, **kwargs):
         session.add(usuario)
         session.commit()
 
-def read_usuario():
-    with Session(bind=engine) as session:
-        cmd_sql = select(Usuario)
-        usuarios = session.execute(cmd_sql).fetchall()
-        return usuarios
+if __name__ == '__main__':
+    create_usuario('Batman', '123', 'batman@mail.com')
 
