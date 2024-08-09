@@ -65,6 +65,8 @@ def update_user(id, **kwargs):
         colunas = Usuario.__table__.columns.keys()
         for key, value in kwargs.items():
             if key in colunas:
+                if key == 'senha':
+                  usuario.define_senha(value)
                 setattr(usuario, key, value)
         session.commit()
         print('Usuário atualizado com sucesso')
