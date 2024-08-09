@@ -18,7 +18,7 @@ class Usuario(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     nome: Mapped[str] = mapped_column(String(30))
     email: Mapped[str] = mapped_column(String(30))
-    senha: Mapped[str] = mapped_column(String(128))
+    senha: Mapped[str] = mapped_column(String(255))
     acesso_gestor: Mapped[bool] = mapped_column(Boolean(), default=False)
 
     def __repr__(self):

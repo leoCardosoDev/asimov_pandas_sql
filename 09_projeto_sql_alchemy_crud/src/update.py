@@ -18,7 +18,7 @@ class Usuario(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     nome: Mapped[str] = mapped_column(String(30))
     email: Mapped[str] = mapped_column(String(30))
-    senha: Mapped[str] = mapped_column(String(128))
+    senha: Mapped[str] = mapped_column(String(255))
     acesso_gestor: Mapped[bool] = mapped_column(Boolean(), default=False)
 
     def __repr__(self):
@@ -72,4 +72,4 @@ def update_user(id, **kwargs):
         print('Usuário atualizado com sucesso')
 
 if __name__ == '__main__':
-    update_user(4, nome='Manu', email='manu@mail.com')
+    update_user(1, nome='Manu', email='manu@mail.com')
