@@ -72,4 +72,4 @@ def update_user(id, **kwargs):
         print('Usuário atualizado com sucesso')
 
 if __name__ == '__main__':
-    update_user(1, nome='Manu', email='manu@mail.com', senha='4321')
+    update_user(1, nome='Manu', email='manu@mail.com', senha='123')

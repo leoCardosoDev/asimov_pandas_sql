@@ -57,5 +57,5 @@ def read_user_by_id(id):
         return usuario[0][0]
 
 if __name__ == '__main__':
-    print(read_usuario())
-    print(read_user_by_id(1))
+    user = read_user_by_id(1)
+    print(user.verifica_senha('123'))
