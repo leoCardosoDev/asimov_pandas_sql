@@ -42,7 +42,8 @@ Base.metadata.create_all(bind=engine)
 # CRUD
 def create_usuario(nome, senha, email, **kwargs):
     with Session(bind=engine) as session:
-        usuario = Usuario(nome=nome, email=email, senha=senha, **kwargs)
+        usuario = Usuario(nome=nome, email=email, **kwargs)
+        usuario.define_senha(senha)
         session.add(usuario)
         session.commit()
 
