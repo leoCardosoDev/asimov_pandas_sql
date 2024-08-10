@@ -16,5 +16,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copie o conteúdo do diretório atual para o diretório de trabalho no contêiner
 COPY . .
 
-# Defina o comando padrão para manter o contêiner em execução
-CMD ["tail", "-f", "/dev/null"]
+# Exponha a porta em que o Streamlit vai rodar
+EXPOSE 8501
+
+# Inicie o Streamlit
+CMD ["streamlit", "run", "src/index.py", "--server.port=8501", "--server.address=0.0.0.0"]

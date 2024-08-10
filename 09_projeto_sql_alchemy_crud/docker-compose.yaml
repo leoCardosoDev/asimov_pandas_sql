@@ -36,6 +36,8 @@ services:
     working_dir: /app
     depends_on:
       - postgres
+    ports:
+      - "8501:8501"  # Adicione esta linha para mapear a porta 8501 do contêiner para o host
     networks:
       - mynetwork
 
